@@ -10,6 +10,12 @@ let cardHold   = [];    // Matched cards
 let selections = null;
 let flipped    = null;
 let firstFlip = true;
+let timer = null;
+let minutesLabel = document.getElementById("minutes");
+let secondsLabel = document.getElementById("seconds");
+let totalSeconds = 0;
+let scoreLabel = document.getElementById("score");
+let score = 0;
 
 // Shuffle function
 Array.prototype.shuffle = function() {
@@ -55,6 +61,7 @@ function newGame() {
 
 function flipTile(tile, val) {
     if (firstFlip) {
+        timer = setInterval(setTime, 1000);
         firstFlip = false;
     }
 
@@ -90,6 +97,7 @@ function flipTile(tile, val) {
         // Check if matching
         if (cardValue[0] == cardValue[1]) {
             flipped += 2;
+            updateScore();
 
             // Save the 2 cards
             cardHold.push(card_tile[0]);
@@ -156,10 +164,46 @@ key.addEventListener('click', () => {
     resetGame();
 });
 
+// Timer function
+function resetTime() {
+    clearInterval(timer);
+    totalSeconds = 0;
+    secondsLabel.innerHTML = pad(totalSeconds % 60);
+    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+}
+
+function setTime() {
+    ++totalSeconds;
+    secondsLabel.innerHTML = pad(totalSeconds % 60);
+    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+}
+
+function pad(val) {
+    var valString = val + "";
+    if (valString.length < 2) {
+        return "0" + valString;
+    } else {
+        return valString;
+    }
+}
+
+// Score function
+function resetScore() {
+    score = 0;
+    scoreLabel.innerHTML = score;
+}
+
+function updateScore() {
+    score++;
+    scoreLabel.innerHTML = score;
+}
+
 // Reset the board
 function resetGame() {
     // Disable game
     gameStarted = false;
+    resetTime();
+    resetScore();
 
     // Reset variables
     cardValue = [];
