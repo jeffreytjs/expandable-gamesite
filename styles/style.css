@@ -1,0 +1,87 @@
+body {
+    margin:0;
+    padding:0;
+    display: flex;
+}
+
+.content{
+    font-family: century gothic,sans-serif;
+    margin-top: 150px;
+    font-size: 26px;
+    color: white;
+    font-weight: bold;
+}
+
+#content-wrapper {
+    width: 60%;
+    min-height: 300px;
+    height: auto;
+    margin-left: 30px;
+    border: 1px SOLID rgb(0, 0, 0);
+    padding: 25px;
+}
+
+#header {
+    font-size: 40px;
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px 1px #000;
+    padding: 35px;
+}
+
+#sidebar {
+    width: 100px;
+    height: 100hv;
+    background-color:#0704042a!important
+}
+
+#sidebar .title {
+    font-size: 15px;
+    font-family: sans-serif;
+    color: rgb(0, 0, 0);
+    padding: 25px;
+}
+
+.card {
+    height: 120px;
+    width: 70px;
+    transition: all 0.8s ease;
+    background: url(../images/default.png);
+    cursor: pointer;
+    background-size: cover !important;
+    background-position: 20% 50% !important;
+}
+
+.card:hover {
+    box-shadow: 0px 1px 1px 1px rgb(97, 97, 97);
+    transition: all 0.5s ease;
+}
+
+ul {
+    list-style-type: none;
+    width: 80%;
+    margin: 0 auto;
+}
+
+li {
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.key {
+    border: 2px SOLID rgb(0, 0, 0);
+    width: 80%;
+    cursor: pointer;
+    text-align: center;
+    margin: auto;
+    transition: all 0.25s ease;
+    margin-bottom: 15px;
+}
+
+.key:hover {
+    border-color: rgb(0, 0, 0);
+    box-shadow: 1px 1px 9px 1px rgb(0, 0, 0);
+    transition: all 0.25s ease;}
+
+.tileboard {
+    transition: all 0.85s ease;
+}
